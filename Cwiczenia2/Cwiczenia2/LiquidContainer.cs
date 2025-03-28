@@ -16,4 +16,10 @@ public class LiquidContainer : Container, IHazardNotifier
     {
         Console.WriteLine("There is a dangerous situation now. "+SerialNumber);
     }
+
+    public override void PrintInfo()
+    {
+        base.PrintInfo();
+        Console.WriteLine($"Type: Liquid, Hazardous, {isDangerous}");
+    }
 }

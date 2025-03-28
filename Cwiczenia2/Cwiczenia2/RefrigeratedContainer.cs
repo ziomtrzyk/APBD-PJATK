@@ -19,5 +19,9 @@ public class RefrigeratedContainer : Container
 
     protected override double GetMaxFill() => 1.0;
 
-
+    public override void PrintInfo()
+    {
+        base.PrintInfo();
+        Console.WriteLine($"Type: Refrigerated, Temperature: {temperature}, Product: {product}");  
+    }
 }

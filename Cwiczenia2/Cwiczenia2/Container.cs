@@ -41,4 +41,10 @@ public abstract class Container
     {
         return "KON-" + GetConteinerType()+"-"+SerialNumberCounter++;
     }
+
+    public virtual void PrintInfo()
+    {
+        Console.WriteLine($"Container {SerialNumber}");
+        Console.WriteLine($"Height: {Height}, Depth: {Depth}, Weight: {Weight}, Own Weight: {OwnWeight}, Max Payload: {MaxPayload}");
+    }
 }
