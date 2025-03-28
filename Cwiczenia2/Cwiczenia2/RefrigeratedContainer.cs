@@ -22,6 +22,6 @@ public class RefrigeratedContainer : Container
     public override void PrintInfo()
     {
         base.PrintInfo();
-        Console.WriteLine($"Type: Refrigerated, Temperature: {temperature}, Product: {product}");  
+        Console.WriteLine($"     Type: Refrigerated, Temperature: {temperature}, Product: {product}");  
     }
 }

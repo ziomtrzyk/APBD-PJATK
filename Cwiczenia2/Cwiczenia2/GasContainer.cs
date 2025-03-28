@@ -26,6 +26,6 @@ public class GasContainer : Container, IHazardNotifier
     public override void PrintInfo()
     {
         base.PrintInfo();
-        Console.WriteLine($"Type: Gas, Pressure: {pressure} atm");
+        Console.WriteLine($"     Type: Gas, Pressure: {pressure} atm");
     }
 }

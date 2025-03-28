@@ -44,7 +44,7 @@ public abstract class Container
 
     public virtual void PrintInfo()
     {
-        Console.WriteLine($"Container {SerialNumber}");
-        Console.WriteLine($"Height: {Height}, Depth: {Depth}, Weight: {Weight}, Own Weight: {OwnWeight}, Max Payload: {MaxPayload}");
+        Console.WriteLine($"   Container {SerialNumber}");
+        Console.WriteLine($"     Height: {Height}, Depth: {Depth}, Weight: {Weight}, Own Weight: {OwnWeight}, Max Payload: {MaxPayload}");
     }
 }

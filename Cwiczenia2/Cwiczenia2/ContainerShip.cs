@@ -7,12 +7,12 @@ public class ContainerShip
     public int MaxContainerCount { get; set; }
     public double MaxWeight { get; set; }
 
-    public ContainerShip(List<Container> containers, double maxSpeed, int maxContainerCount, double maxWeight)
+    public ContainerShip(double maxSpeed, int maxContainerCount, double maxWeight)
     {
-        Containers = containers;
         MaxSpeed = maxSpeed;
         MaxContainerCount = maxContainerCount;
         MaxWeight = maxWeight;
+        Containers = new List<Container>();
     }
 
     public void LoadContainer(Container container)

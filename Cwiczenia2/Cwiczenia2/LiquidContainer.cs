@@ -20,6 +20,6 @@ public class LiquidContainer : Container, IHazardNotifier
     public override void PrintInfo()
     {
         base.PrintInfo();
-        Console.WriteLine($"Type: Liquid, Hazardous, {isDangerous}");
+        Console.WriteLine($"     Type: Liquid, Hazardous, {isDangerous}");
     }
 }
