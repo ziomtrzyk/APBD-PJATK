@@ -8,19 +8,9 @@ public class LiquidContainer : Container, IHazardNotifier
     }
 
     public bool isDangerous{ get; set; }
-    public double GetMaxFill() => isDangerous ? 0.5 : 0.9;
+    protected override double GetMaxFill() => isDangerous ? 0.5 : 0.9;
 
-    protected override string GetConteinerType()
-    {
-        return "L";
-    }
-
-    public override void LoadCargo(double weight)
-    {
-        if(weight > (GetMaxFill()*MaxPayload))
-            throw new OverfillException("The weight is greater than the max payload. This is an attempt to perform a dangerous operation.");
-        Weight = weight;
-    }
+    protected override string GetConteinerType() => "L";
 
     public void NotifyHazard()
     {

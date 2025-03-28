@@ -12,6 +12,7 @@ public abstract class Container
     static int SerialNumberCounter = 1;
 
     protected abstract string GetConteinerType();
+    protected abstract double GetMaxFill();
     
     
     protected Container(double weight, double height, double ownWeight, double depth, double maxPayload)
@@ -29,10 +30,10 @@ public abstract class Container
         Weight = 0;
     }
 
-    public virtual void LoadCargo(double weight)
+    public void LoadCargo(double weight)
     {
-        if(weight > MaxPayload)
-            throw new OverfillException("The weight is greater than the max payload.");
+        if(weight > (MaxPayload*GetMaxFill()))
+            throw new OverfillException("The weight is greater than the max payload. This is an attempt to perform a dangerous operation.");
         Weight = weight;
     }
 

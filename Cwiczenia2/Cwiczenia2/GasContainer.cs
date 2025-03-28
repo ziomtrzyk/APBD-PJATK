@@ -9,10 +9,9 @@ public class GasContainer : Container, IHazardNotifier
 
     public double pressure { get; set; }
 
-    protected override string GetConteinerType()
-    {
-        return "G";
-    }
+    protected override string GetConteinerType() => "G";
+
+    protected override double GetMaxFill() => 1.0;
 
     public override void UnloadCargo()
     {
