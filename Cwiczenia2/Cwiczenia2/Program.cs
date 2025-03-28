@@ -31,7 +31,5 @@ class Program
         
         ship2.PrintInfo();
         
-        
-        
     }
 }

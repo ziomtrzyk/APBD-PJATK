@@ -17,7 +17,7 @@ public class ContainerShip
 
     public void LoadContainer(Container container)
     {
-        double totalWeight = Containers.Sum(c => c.Weight);
+        double totalWeight = Containers.Sum(c => c.Weight +c.OwnWeight);
         if(Containers.Count >= MaxContainerCount || totalWeight > MaxWeight*1000)
             throw new Exception("Too many containers or too much weight");
         Containers.Add(container);
