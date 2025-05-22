@@ -10,9 +10,9 @@ public class AnimalsController : ControllerBase
     
     public AnimalsController()
     {
-        // _animals.Add(new Animal{Id = 1, Color = "red", Weight = 7});
-        // _animals.Add(new Animal{Id = 2, Color = "blue", Weight = 10});
-        // _animals.Add(new Animal{Id = 3, Color = "black", Weight = 8});
+        // DataStore._animals.Add(new Animal{Id = 1, Color = "red", Weight = 7, Name = "rafal"});
+        // DataStore._animals.Add(new Animal{Id = 2, Color = "blue", Weight = 10, Name="Basia"});
+        // DataStore._animals.Add(new Animal{Id = 3, Color = "black", Weight = 8, Name="Lala"});
     }
     
     [HttpGet]
@@ -59,8 +59,9 @@ public class AnimalsController : ControllerBase
         return Ok(DataStore._animals);
     }
 
-    [HttpGet("search")]
-    public IActionResult SearchAnimals([FromQuery]string name)
+    //[HttpGet("search")]
+    [HttpGet("{name}")]
+    public IActionResult SearchAnimals(string name)
     {
         var animals = DataStore._animals.Where(a => a.Name.ToLower().Contains(name.ToLower()));
         return Ok(animals);
