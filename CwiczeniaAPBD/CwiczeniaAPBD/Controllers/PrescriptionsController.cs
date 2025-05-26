@@ -25,6 +25,25 @@ public class PrescriptionsController : ControllerBase
         return Ok(data);
     }
 
+    [HttpPost]
+    public async Task<IActionResult> PostAsync(Prescription_Medicament prescription_medicament,
+        CancellationToken cancellationToken)
+    {
+
+        var pm = new Prescription_Medicament
+        {
+            IdMedicament = prescription_medicament.IdMedicament,
+            Prescription = prescription_medicament.Prescription,
+            Dose = prescription_medicament.Dose,
+            Details = prescription_medicament.Details,
+        };
+        
+        await _dbContext.Prescription_Medicaments.AddAsync(pm, cancellationToken);
+        await _dbContext.SaveChangesAsync(cancellationToken);
+        
+        return Ok("Added Prescription_Medicament");
+    }
+
     // [HttpPost]
     // public async Task<IActionResult> PostPrescription(CancellationToken cancellationToken, [FromBody] CreatePrescription createPrescription)
     // {
@@ -55,7 +74,7 @@ public class PrescriptionsController : ControllerBase
         
         return Ok(prescription);
     }*/
-    [HttpPost]
+    /*[HttpPost]
     public async Task<IActionResult> CreatePrescription(CreatePrescription createPrescription, CancellationToken cancellationToken)
     {
         var doctor = new Doctor
@@ -94,7 +113,7 @@ public class PrescriptionsController : ControllerBase
             DueDate = createPrescription.DueDate,
             Doctor = doctor,
             Patient = patient,
-            Prescription_Medicaments = prescriptionMedicaments
+            
         };
         
         
@@ -103,5 +122,5 @@ public class PrescriptionsController : ControllerBase
         
         
         return Ok("Prescription created");
-    }
+    }*/
 }

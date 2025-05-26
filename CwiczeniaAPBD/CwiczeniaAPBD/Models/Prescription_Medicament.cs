@@ -6,10 +6,11 @@ namespace CwiczeniaAPBD.Models;
 
 public class Prescription_Medicament
 {
+    //[Key]
     public int IdMedicament { get; set; }
     
-    [ForeignKey(nameof(IdMedicament))]
-    public Medicament Medicament { get; set; }
+    /*[ForeignKey(nameof(IdMedicament))]
+    public Medicament Medicament { get; set; }*/
     
     [Key]
     public int IdPrescription { get; set; }

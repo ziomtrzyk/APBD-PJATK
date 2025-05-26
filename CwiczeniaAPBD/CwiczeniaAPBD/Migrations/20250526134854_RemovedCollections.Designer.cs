@@ -4,6 +4,7 @@ using CwiczeniaAPBD.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CwiczeniaAPBD.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20250526134854_RemovedCollections")]
+    partial class RemovedCollections
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -209,6 +212,8 @@ namespace CwiczeniaAPBD.Migrations
 
                     b.HasKey("IdPrescription");
 
+                    b.HasIndex("IdMedicament");
+
                     b.ToTable("Prescription_Medicaments");
                 });
 
@@ -233,11 +238,19 @@ namespace CwiczeniaAPBD.Migrations
 
             modelBuilder.Entity("CwiczeniaAPBD.Models.Prescription_Medicament", b =>
                 {
+                    b.HasOne("CwiczeniaAPBD.Models.Medicament", "Medicament")
+                        .WithMany()
+                        .HasForeignKey("IdMedicament")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("CwiczeniaAPBD.Models.Prescription", "Prescription")
                         .WithMany()
                         .HasForeignKey("IdPrescription")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Medicament");
 
                     b.Navigation("Prescription");
                 });
