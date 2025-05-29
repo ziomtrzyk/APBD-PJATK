@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CwiczeniaAPBD.Models;
 
+[PrimaryKey(nameof(IdMedicament), nameof(IdPrescription))]
 public class Prescription_Medicament
 {
-    //[Key]
+    
     public int IdMedicament { get; set; }
     
     /*[ForeignKey(nameof(IdMedicament))]
     public Medicament Medicament { get; set; }*/
     
-    [Key]
     public int IdPrescription { get; set; }
     
     [ForeignKey(nameof(IdPrescription))]
