@@ -1,0 +1,25 @@
+http://localhost:5271/api/prescriptions
+{
+  "IdMedicament": 1,
+  "IdPrescription": 1,
+  "Dose": 2,
+  "Details": "Take one tablet twice daily with meals",
+  "Prescription": {
+    "Date": "2025-05-20T00:00:00Z",
+    "DueDate": "2025-06-20T00:00:00Z",
+    "IdPatient": 1,
+    "IdDoctor": 1,
+    "Patient": {
+      "FirstName": "Jan",
+      "LastName": "Kowalski",
+      "Birthdate": "1985-03-15T00:00:00Z"
+    },
+    "Doctor": {
+      "FirstName": "Anna",
+      "LastName": "Nowak",
+      "Email": "anna.nowak@hospital.com"
+    }
+  }
+}
+
+http://localhost:5271/api/patients/1
